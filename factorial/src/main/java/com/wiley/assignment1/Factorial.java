@@ -9,7 +9,7 @@ public class Factorial {
 	
 	 private Scanner scanner;
 	 private PrintStream printStream;
-	 private int num;
+	 private int inputNum;
 	 
 
 	 public Factorial(InputStream inputStream, PrintStream printStream) {
@@ -37,21 +37,23 @@ public class Factorial {
 
 		 this.printStream.println("Enter the number between 1 and 10 that you'd like to calculate the factorial of: ");
 
-		 // Use a try/catch block to check whether number is valid, and return proper error message if invalid.
+		 // Use a try/catch block to check whether number is valid; return error message if input not a number.
 		 try {
-			 num = Integer.parseInt(scanner.nextLine());
+			 inputNum = Integer.parseInt(scanner.nextLine());
 
-			 // Check num to be within the bounds of 1 and 10.
-			 // *Note: Test case seems to be different (ln and no ln) for <1 and >10 numbers, hence two code blocks where there
-			 // could have been one.
-			 if (num < 1) {
+			 // Checks whether num is within the bounds of 1 and 10.
+			 // *Note: Test case seems to be different (ln and no ln) for < 1 and > 10 numbers, hence two code blocks
+			 // where there could have been one for efficiency.
+
+			 if (inputNum < 1) { // Case 1: negative numbers/zero.
 				 this.printStream.print("Invalid entry. Please enter an integer between 1 and 10, inclusive.");
 				 return -1;
-			 } else if (num > 10) {
+			 } else if (inputNum > 10) { // Case 2: numbers greater than 10.
 				 this.printStream.println("Invalid entry. Please enter an integer between 1 and 10, inclusive.");
 				 return -1;
 			 }
-			 return num;
+			 return inputNum;
+
 		 } catch(NumberFormatException e) {
 			 this.printStream.print("Invalid entry. Please enter an integer between 1 and 10, inclusive.");
 		 }
@@ -74,15 +76,14 @@ public class Factorial {
 		 int result = 1;
 		//YOUR CODE STARTS HERE
 
+		 // Case 1: 1 and 2 require no calculations.
 		 if (num <= 2) {
 			 result = num;
-		 } else {
+		 } else { // Case 2: increment to num, multiplying to result each time we increment.
 			 for (int i = 2; i <= num; i++) {
 				 result = result * i;
 			 }
 		 }
-
- 
 
 		//YOUR CODE ENDS HERE
 		this.printStream.print("The Factorial is: " + result);		
