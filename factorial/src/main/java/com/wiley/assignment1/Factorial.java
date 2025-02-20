@@ -35,7 +35,28 @@ public class Factorial {
 
 		//YOUR CODE STARTS HERE
 
-		return -1;
+		 this.printStream.println("Enter the number between 1 and 10 that you'd like to calculate the factorial of: ");
+
+		 // Use a try/catch block to check whether number is valid, and return proper error message if invalid.
+		 try {
+			 num = Integer.parseInt(scanner.nextLine());
+
+			 // Check num to be within the bounds of 1 and 10.
+			 // *Note: Test case seems to be different (ln and no ln) for <1 and >10 numbers, hence two code blocks where there
+			 // could have been one.
+			 if (num < 1) {
+				 this.printStream.print("Invalid entry. Please enter an integer between 1 and 10, inclusive.");
+				 return -1;
+			 } else if (num > 10) {
+				 this.printStream.println("Invalid entry. Please enter an integer between 1 and 10, inclusive.");
+				 return -1;
+			 }
+			 return num;
+		 } catch(NumberFormatException e) {
+			 this.printStream.print("Invalid entry. Please enter an integer between 1 and 10, inclusive.");
+		 }
+
+		 return -1;
 
 		//YOUR CODE ENDS HERE
 		 
@@ -50,9 +71,16 @@ public class Factorial {
 		  
 		  - All code should be inside the placeholders below.
 		*/
-		 
-		int result = 1;
+		 int result = 1;
 		//YOUR CODE STARTS HERE
+
+		 if (num <= 2) {
+			 result = num;
+		 } else {
+			 for (int i = 2; i <= num; i++) {
+				 result = result * i;
+			 }
+		 }
 
  
 

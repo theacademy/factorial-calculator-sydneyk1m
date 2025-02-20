@@ -132,7 +132,7 @@ public class TestFactorial {
 	    String key = "Invalid entry. Please enter an integer between 1 and 10, inclusive.";
 	    String output = outputText.substring(outputText.indexOf(key));
 	    //Assertions.assertEquals("720",output);
-	    Assertions.assertEquals("Invalid entry. Please enter an integer between 1 and 10, inclusive.",output);
+	    Assertions.assertEquals("Invalid entry. Please enter an integer between 1 and 10, inclusive.\n",output);
 		
 	}
 
