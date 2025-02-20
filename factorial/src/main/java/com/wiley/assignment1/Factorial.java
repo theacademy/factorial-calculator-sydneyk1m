@@ -35,8 +35,6 @@ public class Factorial {
 
 		//YOUR CODE STARTS HERE
 
-		 this.printStream.println("Enter the number between 1 and 10 that you'd like to calculate the factorial of: ");
-
 		 // Use a try/catch block to check whether number is valid; return error message if input not a number.
 		 try {
 			 inputNum = Integer.parseInt(scanner.nextLine());
