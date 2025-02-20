@@ -43,11 +43,8 @@ public class Factorial {
 			 // *Note: Test case seems to be different (ln and no ln) for < 1 and > 10 numbers, hence two code blocks
 			 // where there could have been one for efficiency.
 
-			 if (inputNum < 1) { // Case 1: negative numbers/zero.
+			 if (inputNum < 1 || inputNum > 10) { // Case 1: negative numbers/zero.
 				 this.printStream.print("Invalid entry. Please enter an integer between 1 and 10, inclusive.");
-				 return -1;
-			 } else if (inputNum > 10) { // Case 2: numbers greater than 10.
-				 this.printStream.println("Invalid entry. Please enter an integer between 1 and 10, inclusive.");
 				 return -1;
 			 }
 			 return inputNum;
